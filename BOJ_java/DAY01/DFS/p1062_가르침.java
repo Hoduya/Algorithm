@@ -1,13 +1,11 @@
 package DAY01.DFS;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class sds_p1062_가르침 {
+public class p1062_가르침 {
     static int N, K;
     static String[] words;
     static String[] subString;
