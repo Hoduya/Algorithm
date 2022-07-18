@@ -1,3 +1,5 @@
+package Study;
+
 import java.util.Scanner;
 
 public class p_2884 {

@@ -1,4 +1,4 @@
-// Queue 인터페이스 사용
+package Study;// Queue 인터페이스 사용
 
 import java.util.LinkedList;
 import java.util.Queue;

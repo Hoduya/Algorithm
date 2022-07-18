@@ -1,4 +1,4 @@
-// Arrays sort는 퀵정렬, 최악의 경우 O(N^2)
+package Study;// Arrays sort는 퀵정렬, 최악의 경우 O(N^2)
 // Collections sort를 이용해서 시간을 줄여야함 -> time sort 이용...
 import java.io.*;
 import java.util.ArrayList;

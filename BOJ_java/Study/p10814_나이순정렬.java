@@ -1,4 +1,4 @@
-// compare 메소드는 양의 정수, 0, 음의 정수 중 하나를 반환하며
+package Study;// compare 메소드는 양의 정수, 0, 음의 정수 중 하나를 반환하며
 // 양의 정수일 경우만 두 객체의 위치를 바꿔주는 역할
 import java.io.BufferedReader;
 import java.io.IOException;

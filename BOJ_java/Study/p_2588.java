@@ -1,3 +1,5 @@
+package Study;
+
 import java.util.*;
 
 public class p_2588 {
