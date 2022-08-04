@@ -5,10 +5,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
+import java.util.stream.DoubleStream;
 
 public class p2003_수들의합2 {
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("BOJ_java/input.txt"));
+        System.setIn(new FileInputStream("input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         int N = Integer.parseInt(st.nextToken());
@@ -23,6 +24,7 @@ public class p2003_수들의합2 {
         int l = 0, h = 0, sum = 0, count = 0;
 
         while(true){
+
             if(sum == M){
                 count++;
                 sum -= A[l++];
@@ -33,10 +35,11 @@ public class p2003_수들의합2 {
             }
 
             else{
-                sum += A[++h];
+                if(h == N) continue;
+                sum += A[h++];
             }
 
-            if(h == N - 1){
+            if(h == N && sum < M){
                 break;
             }
         }
