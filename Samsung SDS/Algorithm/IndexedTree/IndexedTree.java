@@ -23,10 +23,9 @@ public class IndexedTree {
         }
 
         init();
-        update(1, 2);
-        for(long a : IDT) {
-            System.out.print(a + " ");
-        }
+
+        System.out.println(getSum(1, 2));
+
     }
 
     static void init() {
@@ -61,6 +60,22 @@ public class IndexedTree {
         }
 
         return sum;
+    }
+
+    // 맥스트리 만들어줘야함
+    static long getMax(int l, int r) {
+        l += B - 1;
+        r += B - 1;
+        long max = 0;
+
+        while(l <= r) {
+            if((l & 1) == 1)  max = Math.max(max, IDT[l++]);
+            if((r & 1) == 0)  max = Math.max(max, IDT[r--]);
+            l /= 2;
+            r /= 2;
+        }
+
+        return max;
     }
 
     static void update(int idx, long num) {

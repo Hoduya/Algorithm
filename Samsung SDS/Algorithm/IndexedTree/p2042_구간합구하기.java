@@ -46,6 +46,7 @@ public class p2042_구간합구하기 {
         }
         System.out.println(sb);
     }
+
     static void init() {
         S = 1;
         while(N > (S <<= 1));
