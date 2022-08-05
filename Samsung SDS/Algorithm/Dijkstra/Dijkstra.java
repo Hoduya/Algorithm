@@ -8,17 +8,12 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-/*
-    도착점 X로 부터 다른 모든 정점까지의 최단경로는
-    다익스트라 한번으로 구할 수 있다.
-    모든 정점으로부터 도착점 X 까지의 최단경로는
-    역방향 간선을 따로 입력받아 X로 부터 모든 정점까지의 최단경로를 구하면 된다.
-    이렇게 다익스트라를 2번만 수행해서 해결 할 수 있다.
- */
-public class p1238_파티 {
+public class Dijkstra {
     static final int INF = Integer.MAX_VALUE;
     static int N, M, X;
+    static ArrayList<Node>[] adj;
     static boolean[] visited;
+    static int dist[];
 
     public static void main(String[] args) throws IOException {
         System.setIn(new FileInputStream("input.txt"));
@@ -29,17 +24,11 @@ public class p1238_파티 {
         M = Integer.parseInt(st.nextToken());
         X = Integer.parseInt(st.nextToken());
 
+        dist = new int[N + 1];
         visited = new boolean[N + 1];
-        ArrayList<Node>[] adj = new ArrayList[N + 1];
-        ArrayList<Node>[] r_adj = new ArrayList[N + 1];
-        int[] dist = new int[N + 1];
-        int[] r_dist = new int[N + 1];
+        adj = new ArrayList[N + 1];
 
-
-        for (int i = 1; i <= N; i++) {
-            r_adj[i] = new ArrayList<>();
-            adj[i] = new ArrayList<>();
-        }
+        for (int i = 1; i <= N; i++) adj[i] = new ArrayList<>();
 
         int s, e, t;
         for (int i = 0; i < M; i++) {
@@ -49,20 +38,12 @@ public class p1238_파티 {
             t = Integer.parseInt(st.nextToken());
 
             adj[s].add(new Node(e, t));
-            r_adj[e].add(new Node(s, t));
         }
 
-        dijkstra(X, adj, dist);
-        dijkstra(X, r_adj, r_dist);
+        dijkstra(1, 2);
 
-        int maxTime = 0;
-        for(int i = 1; i <= N; i++) {
-            maxTime = Math.max(maxTime , dist[i] + r_dist[i]);
-        }
-
-        System.out.println(maxTime);
     }
-    static void dijkstra(int start, ArrayList<Node>[] adj, int[] dist) {
+    static int dijkstra(int start, int end) {
         PriorityQueue<Node> pq = new PriorityQueue<>();
         Arrays.fill(dist, INF);
         Arrays.fill(visited, false);
@@ -83,6 +64,8 @@ public class p1238_파티 {
                 }
             }
         }
+
+        return dist[end];
     }
 
 

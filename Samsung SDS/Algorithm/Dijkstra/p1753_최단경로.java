@@ -12,20 +12,6 @@ public class p1753_최단경로 {
     static int[] dist;
     static int INF = Integer.MAX_VALUE;
 
-    static class Node implements Comparable<Node>{
-        int idx, w;
-
-        public Node(int idx, int w) {
-            this.idx = idx;
-            this.w = w;
-        }
-
-        @Override
-        public int compareTo(Node o) {
-            return this.w - o.w;
-        }
-    }
-
     public static void main(String[] args) throws IOException {
         System.setIn(new FileInputStream("input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -85,6 +71,20 @@ public class p1753_최단경로 {
                     pq.add(new Node(adj.idx, dist[adj.idx]));
                 }
             }
+        }
+    }
+
+    static class Node implements Comparable<Node>{
+        int idx, w;
+
+        public Node(int idx, int w) {
+            this.idx = idx;
+            this.w = w;
+        }
+
+        @Override
+        public int compareTo(Node o) {
+            return this.w - o.w;
         }
     }
 }
