@@ -1,4 +1,4 @@
-package Lecture.DAY07.p1753_최단경로;
+package Algorithm.Dijkstra;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+public class p1753_최단경로 {
     static ArrayList<Node>[] edges;
     static int V, E;
     static int[] dist;
