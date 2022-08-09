@@ -14,7 +14,6 @@ public class p11438_LCA2 {
     static boolean[] vst;
     static int[][] parents;
     static ArrayList<Integer>[] adj;
-    static boolean[] visited;
 
     public static void main(String[] args) throws IOException {
         System.setIn(new FileInputStream("input.txt"));
