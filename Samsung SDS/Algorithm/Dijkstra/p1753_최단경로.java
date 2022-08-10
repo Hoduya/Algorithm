@@ -65,7 +65,7 @@ public class p1753_최단경로 {
 
             // 인접 노드를 탐색
             for(Node adj : edges[cur.idx]){
-                // 현재 노ㅁ드를 거쳤을 때 거리가 더 작다면, 갱신
+                // 현재 노드를 거쳤을 때 거리가 더 작다면, 갱신
                 if(dist[adj.idx] > dist[cur.idx] + adj.w){
                     dist[adj.idx] = dist[cur.idx] + adj.w;
                     pq.add(new Node(adj.idx, dist[adj.idx]));

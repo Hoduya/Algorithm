@@ -4,76 +4,80 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int[] p;
+    static final int INF = Integer.MAX_VALUE;
     static int[] dist;
+    static boolean[] vst;
+    static ArrayList<Node>[] adj;
 
     public static void main(String[] args) throws IOException {
-        System.setIn(new FileInputStream("input.txt"));
+        System.setIn(new FileInputStream("Input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        StringTokenizer st;
 
-        int N, M ,a, b, w;
-        String command;
-        while(true) {
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int V = Integer.parseInt(st.nextToken());
+        int E = Integer.parseInt(st.nextToken());
+        int S = Integer.parseInt(br.readLine());
+
+        adj = new ArrayList[V + 1];
+        dist = new int[V + 1];
+        vst = new boolean[V + 1];
+        for (int i = 1; i <= V; i++) adj[i] = new ArrayList<>();
+
+        int u, v, w;
+        for(int i = 0; i < E; i++) {
             st = new StringTokenizer(br.readLine(), " ");
-            N = Integer.parseInt(st.nextToken());
-            M = Integer.parseInt(st.nextToken());
-            if(N == 0 || M == 0) break;
+            u = Integer.parseInt(st.nextToken());
+            v = Integer.parseInt(st.nextToken());
+            w = Integer.parseInt(st.nextToken());
+            adj[u].add(new Node(v, w));
+        }
+        dijkstra(S);
 
-            p = new int[N + 1];
-            dist = new int[N + 1];
-            Arrays.fill(p , -1);
-            Arrays.fill(dist , 0);
+        StringBuilder sb = new StringBuilder();
+        for(int i = 1; i <= V; i++) {
+            if(dist[i] == INF) sb.append("INF" + "\n");
+            else sb.append(dist[i] + "\n");
+        }
+        System.out.print(sb);
+    }
+    static void dijkstra(int s) {
+        Arrays.fill(dist, INF);
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        pq.add(new Node(s, 0));
+        dist[s] = 0;
 
-            for (int i = 0; i < M; i++) {
-                st = new StringTokenizer(br.readLine(), " ");
-                command = st.nextToken();
+        while(!pq.isEmpty()) {
+            Node cur = pq.poll();
+            vst[cur.idx] = true;
 
-                if(command.equals("!")) {
-                    a = Integer.parseInt(st.nextToken());
-                    b = Integer.parseInt(st.nextToken());
-                    w = Integer.parseInt(st.nextToken());
-
-                    union(a, b, w);
-                }
-
-                else {
-                    a = Integer.parseInt(st.nextToken());
-                    b = Integer.parseInt(st.nextToken());
-
-                    if(find(a) != find(b)) {
-                        sb.append("UNKNOWN" + "\n");
-                    } else {
-                        sb.append(dist[b] - dist[a] + "\n");
+            for(Node next : adj[cur.idx]) {
+                if(!vst[next.idx]) {
+                    if(dist[next.idx] > dist[cur.idx] + next.w) {
+                        dist[next.idx] = dist[cur.idx] + next.w;
+                        pq.add(new Node(next.idx, dist[next.idx]));
                     }
                 }
             }
         }
-        System.out.println(sb);
     }
 
-    static void union(int x, int y, int w) {
-        int rootX = find(x);
-        int rootY = find(y);
+    static class Node implements Comparable<Node>{
+        int idx, w;
 
-        if(rootX == rootY) return;
+        public Node(int idx, int w) {
+            this.idx = idx;
+            this.w = w;
+        }
 
-        dist[rootY] = dist[x] - dist[y] + w;
-        p[rootY] = rootX;
-
-        return;
-    }
-
-    static int find(int x) {
-        if(p[x] == -1) return x;
-
-        int parent = find(p[x]);
-        dist[x] += dist[p[x]];
-        return p[x] = parent;
+        @Override
+        public int compareTo(Node o) {
+            return this.w - o.w;
+        }
     }
 }
