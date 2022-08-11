@@ -1,7 +1,6 @@
 package Algorithm.DynamicProgramming;
 
 import java.io.*;
-import java.util.Scanner;
 
 public class p2579_계단오르기 {
 
