@@ -1,4 +1,4 @@
-package TEST;
+package Algorithm.Dijkstra;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-public class Main {
+public class p1854_K번째최단경로 {
     static PriorityQueue<Integer> dist[];
     static int N, M, K;
     static ArrayList<Node>[] adj;
