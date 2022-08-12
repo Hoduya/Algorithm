@@ -18,7 +18,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 // 이분 탐색 방법
@@ -28,40 +27,43 @@ public class LIS {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
-        ArrayList<Integer> arr = new ArrayList<>();
-        ArrayList<Integer> LIS = new ArrayList<>();
+        int[] arr = new int[N];
+        int[] LIS = new int[N];
 
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         for (int i = 0; i < N; i++) {
-            arr.add(Integer.parseInt(st.nextToken()));
+            arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        int e = 0;
-        LIS.add(0);
+        int end = 0;
+        LIS[0] = arr[0];
         // 조건
         // 1. 현재 원소가 LIS 배열의 end 보다 크면 push
         // 2. 현재 원소가 end값 이하면 lowerbound에 대입
-        for(int i = 0; i < N; i++) {
-            if(arr.get(i) > LIS.get(e) ) { // 조건 1
-                LIS.add(arr.get(i));
-                e++;
+        for(int i = 1; i < N; i++) {
+            if(arr[i] > LIS[end]) { // 조건 1
+                LIS[++end] = arr[i];
             }
             else { // 조건 2
-                int idx = getLowerBounds(LIS, arr.get(i));
-                LIS.set(idx, arr.get(i));
+                int idx = getLowerBounds(LIS, end + 1, arr[i]);
+                LIS[idx] = arr[i];
             }
         }
 
-        System.out.println(e);
+        for (int element : LIS) {
+            System.out.print(element + " ");
+        }
+
+        System.out.println(end + 1);
     }
 
-    static int getLowerBounds(ArrayList<Integer> arr, int val) {
+    static int getLowerBounds(int[] arr, int size, int val) {
         int l = 0;
-        int h = arr.size() - 1;
+        int h = size - 1;
         int mid;
         while(l < h) {
             mid = l + ( h - l ) / 2;
-            if(arr.get(mid) >= val) h = mid;
+            if(arr[mid] >= val) h = mid;
             else l = mid + 1;
         }
         return l;
