@@ -1,37 +1,33 @@
 package Class4.p2407_조합;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class Main {
     static int N, M;
-    static int[] dp;
-    static int count = 0;
+    static BigInteger[][] dp;
     public static void main(String[] args) throws IOException {
+        System.setIn(new FileInputStream("Input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        dp = new int[N + 1];
-        dp[1] = 1;
-        dp[2] = 2;
+        dp = new BigInteger[101][101];
 
-        System.out.println(factorial(N));
-    }
-
-    static int factorial(int num) {
-        if(num == 1) {
-            return 1;
+        for(int i = 1; i <= N; i++) {
+            for(int j = 0; j <= i; j++) {
+                if(j == 0 || j == i) {
+                    dp[i][j] = new BigInteger("1");
+                }
+                else {
+                    dp[i][j] = dp[i - 1][j].add(dp[i - 1][j - 1]);
+                }
+            }
         }
 
-        if(dp[num] != 0) {
-            return dp[num];
-        }
-
-        return dp[num] = num * factorial(num - 1);
+        System.out.println(dp[N][M]);
     }
 }
