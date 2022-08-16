@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/BOJ_java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SW_expert_academy" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Samsung SDS" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Programmers" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
