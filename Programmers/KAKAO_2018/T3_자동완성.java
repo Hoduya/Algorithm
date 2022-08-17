@@ -1,33 +1,23 @@
 package KAKAO_2018;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Stack;
-
 public class T3_자동완성 {
+    static int count = 0;
+    static int[] numbers = {1, 2, 3, -2, 0, 2};
     public static void main(String[] args) {
-        HashMap<String, Integer> map = new HashMap<>();
 
-        Stack<Integer> st = new Stack<>();
+        dfs(0, 0, 0);
+        System.out.println(count);
+    }
 
-        int[] order = {4, 3, 5, 2, 1};
-
-        int count = 0;
-        int i = 1;
-        while(count < order.length) {
-            if (order[count] > i) {
-                st.push(i++);
-                continue;
+    static void dfs(int start, int depth, int sum) {
+        if(depth == 3) {
+            if(sum == 0) {
+                count++;
             }
-
-            if(order[count] == i) {
-                count += 1;
-                i += 1;
-            }
-            else if(order[count] == st.pop()) count += 1;
-            else break;
         }
 
-        System.out.println(count);
+        for (int i = start; i < numbers.length; i++) {
+
+        }
     }
 }
