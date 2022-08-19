@@ -18,8 +18,6 @@ public class p17398_통신망분할 {
 
         parent = new int[N + 1];
 
-        // union find 문제
-        // 1.
-        // 2.
+
     }
 }

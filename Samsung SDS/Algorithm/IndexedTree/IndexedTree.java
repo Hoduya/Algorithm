@@ -83,7 +83,7 @@ public class IndexedTree {
         IDT[idx] = num;
         while(idx > 1) {
             idx /= 2;
-            IDT[idx] = IDT[idx * 2] + IDT[idx * 2 +1];
+            IDT[idx] = IDT[idx * 2] + IDT[idx * 2 + 1];
         }
         return;
     }
