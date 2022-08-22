@@ -1,10 +1,12 @@
+package Algorithm.IndexedTree;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main {
+public class p3653_영화수집 {
     static int N, M;
     static int[] idt;
     static int[] pos;
