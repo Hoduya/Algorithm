@@ -13,7 +13,11 @@ public class p13913_숨바꼭질4 {
     static int[] counts;
     static int[] path;
 
+
     public static void main(String[] args) throws IOException {
+        Queue<Integer>[] a;
+        a = new Queue[1];
+        a[0] = new LinkedList<>();
         System.setIn(new FileInputStream("input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
