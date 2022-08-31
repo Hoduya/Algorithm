@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.StringTokenizer;
 
 public class Softeer_플레이페어암호 {
     public static void main(String[] args) throws IOException {
@@ -53,22 +52,25 @@ public class Softeer_플레이페어암호 {
                 }
             }
             else if(sb.length() == 1) {
-                if(i == message.length() - 1) {
-                    sb.append("X");
-                    pair.add(sb.toString());
-                    break;
-                }
-
                 if(sb.charAt(0) != ch) {
                     sb.append(ch);
                     pair.add(sb.toString());
                     sb = new StringBuilder();
                 }
                 else {
-                    sb.append("X");
+                    if(sb.charAt(0) == 'X'){
+                        sb.append("Q");
+                    } else {
+                        sb.append("X");
+                    }
                     pair.add(sb.toString());
                     sb = new StringBuilder();
                     sb.append(ch);
+
+                    if(i == message.length() - 1) {
+                        sb.append("X");
+                        pair.add(sb.toString());
+                    }
                 }
             }
         }
@@ -105,15 +107,7 @@ public class Softeer_플레이페어암호 {
             }
         }
 
-        System.out.println(result);
-
-
-        for(int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
-                System.out.print(ciper[i][j] + " ");
-            }
-            System.out.println();
-        }
+        System.out.print(result);
     }
 
     static class Pos {
