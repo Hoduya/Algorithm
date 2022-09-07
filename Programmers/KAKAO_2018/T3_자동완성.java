@@ -1,23 +1,19 @@
 package KAKAO_2018;
 
+import java.util.*;
+
 public class T3_자동완성 {
     static int count = 0;
     static int[] numbers = {1, 2, 3, -2, 0, 2};
     public static void main(String[] args) {
 
-        dfs(0, 0, 0);
-        System.out.println(count);
-    }
+        LinkedList<String> cache = new LinkedList<>();
+        String s;
+        char a = 'a';
+        char b = 'b';
+        System.out.println("ssdf1".toUpperCase());
+        Character.isAlphabetic(a);
+        Set<String> set = new HashSet<String>();
 
-    static void dfs(int start, int depth, int sum) {
-        if(depth == 3) {
-            if(sum == 0) {
-                count++;
-            }
-        }
-
-        for (int i = start; i < numbers.length; i++) {
-
-        }
     }
 }
