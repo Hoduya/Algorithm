@@ -48,8 +48,11 @@
 		38636A5F28E203EC00B4E1AB /* 직사각형별찍기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "직사각형별찍기.swift"; sourceTree = "<group>"; };
 		38636A6128E2C8F300B4E1AB /* 최대공약수와 최소공배수.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "최대공약수와 최소공배수.swift"; sourceTree = "<group>"; };
 		38636A6328E2CB6000B4E1AB /* 이상한문자만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "이상한문자만들기.swift"; sourceTree = "<group>"; };
+		38636A6528E2E98C00B4E1AB /* 삼진법.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "삼진법.swift"; sourceTree = "<group>"; };
 		38BC8FDE28D337770076D0CA /* SwiftPS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftPS; sourceTree = BUILT_PRODUCTS_DIR; };
 		38BC8FE128D337770076D0CA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		38D4114128E31D9C007566F6 /* 예산.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "예산.swift"; sourceTree = "<group>"; };
+		38D4114328E31DBA007566F6 /* 시저암호.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "시저암호.swift"; sourceTree = "<group>"; };
 		38F8CF1328DC6E9E00772D34 /* 정수내림차순으로배치하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "정수내림차순으로배치하기.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +96,9 @@
 				38636A5F28E203EC00B4E1AB /* 직사각형별찍기.swift */,
 				38636A6128E2C8F300B4E1AB /* 최대공약수와 최소공배수.swift */,
 				38636A6328E2CB6000B4E1AB /* 이상한문자만들기.swift */,
+				38636A6528E2E98C00B4E1AB /* 삼진법.swift */,
+				38D4114128E31D9C007566F6 /* 예산.swift */,
+				38D4114328E31DBA007566F6 /* 시저암호.swift */,
 			);
 			path = Level1;
 			sourceTree = "<group>";

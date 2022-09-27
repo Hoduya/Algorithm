@@ -1,18 +1,20 @@
-func solution(_ s:String) -> String {
+import Foundation
+
+func solution(_ s:String, _ n:Int) -> String {
     var answer = ""
-    var isEven = true
-    for e in s {
-        if(e == " ") {
-            answer += String(e)
-            isEven = true
+    for char in s {
+        if char == " " {
+            answer += " "
         }
-        else{
-            answer += isEven ? String(e).uppercased() : String(e).lowercased()
-            isEven = !isEven
-        }
+        
     }
-    return answer
+    return ""
 }
 
+print(solution("AB", 1))
 
-print(solution("asdf asdf ff"))
+var a: Character = "A"
+var unicode = a.asciiValue
+
+print(UnicodeScalar(3))
+
