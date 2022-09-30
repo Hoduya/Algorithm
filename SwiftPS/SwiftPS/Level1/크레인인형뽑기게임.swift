@@ -1,3 +1,9 @@
+//
+//  크레인인형뽑기게임.swift
+//  SwiftPS
+//
+//  Created by HoJun on 2022/09/30.
+//
 
 import Foundation
 
