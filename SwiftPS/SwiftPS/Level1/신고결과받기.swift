@@ -1,3 +1,10 @@
+//
+//  신고결과받기.swift
+//  SwiftPS
+//
+//  Created by HoJun on 2022/09/30.
+//
+
 import Foundation
 
 func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
@@ -10,7 +17,7 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
         reportUsers[num] = Set<Int>()
     }
     
-    // 피신고자를 신고한 리스트 업데이트
+    // 피신고자를 신고한 유저 추가
     for repo in report {
         let reportUser = idmap[String(repo.split(separator: " ")[0])]!
         let reportedUser = idmap[String(repo.split(separator: " ")[1])]!
@@ -18,7 +25,7 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
         reportUsers[reportedUser]!.insert(reportUser)
     }
     
-    // 각 유저의 메일 받은 횟수 [유저: 신고당한 횟수]
+    // 각 유저의 메일 받은 횟수
     var mailCounts = Array(repeating: 0, count: id_list.count)
     
     // 피신고자의 신고 횟수가 k 이상이라면 피신고자를 신고한 신고자들의 메일 카운트 += 1
@@ -30,5 +37,3 @@ func solution(_ id_list:[String], _ report:[String], _ k:Int) -> [Int] {
     
     return mailCounts
 }
-
-solution(["muzi", "frodo", "apeach", "neo"], ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"], 2)
