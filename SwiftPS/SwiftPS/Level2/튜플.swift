@@ -1,3 +1,10 @@
+//
+//  튜플.swift
+//  SwiftPS
+//
+//  Created by HoJun on 2022/10/03.
+//
+
 import Foundation
 
 func solution(_ s:String) -> [Int] {
