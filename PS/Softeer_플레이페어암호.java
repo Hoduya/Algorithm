@@ -38,7 +38,7 @@ public class Softeer_플레이페어암호 {
             ciper[count / 5][count % 5] = (char)('A' + i);
             count++;
         }
-
+        
         // 메세지 쌍으로 나누기
         ArrayList<String> pair = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
