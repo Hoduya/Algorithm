@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38579B0628E5E31100E978AE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC8FE128D337770076D0CA /* main.swift */; };
+		3862954628F0045000BB639B /* 프렌즈4블록.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3862954528F0045000BB639B /* 프렌즈4블록.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +73,7 @@
 		3862951F28ED81AD00BB639B /* 타겟넘버.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "타겟넘버.swift"; sourceTree = "<group>"; };
 		3862952128ED8A0D00BB639B /* 압축.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "압축.swift"; sourceTree = "<group>"; };
 		3862952328EDD7C600BB639B /* N진수게임.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "N진수게임.swift"; sourceTree = "<group>"; };
+		3862954528F0045000BB639B /* 프렌즈4블록.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "프렌즈4블록.swift"; sourceTree = "<group>"; };
 		38636A3628E17C4000B4E1AB /* 문자열내p와y의개수.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "문자열내p와y의개수.swift"; sourceTree = "<group>"; };
 		38636A3828E18DD100B4E1AB /* x만큼간격이있는n개의숫자.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "x만큼간격이있는n개의숫자.swift"; sourceTree = "<group>"; };
 		38636A3A28E1908E00B4E1AB /* 콜라스추측.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "콜라스추측.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				3862951F28ED81AD00BB639B /* 타겟넘버.swift */,
 				3862952128ED8A0D00BB639B /* 압축.swift */,
 				3862952328EDD7C600BB639B /* N진수게임.swift */,
+				3862954528F0045000BB639B /* 프렌즈4블록.swift */,
 			);
 			path = Level2;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38579B0628E5E31100E978AE /* main.swift in Sources */,
+				3862954628F0045000BB639B /* 프렌즈4블록.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
