@@ -1,7 +1,31 @@
 import Foundation
 
-func solution(_ numbers:[Int]) -> String {
-    let result = numbers.map{String($0)}.sorted{Int($0 + $1)! > Int($1 + $0)!}.joined()
- 
-    return result.first! == "0" ? "0" : result
+var result = [0, 0]
+func solution(_ arr:[[Int]]) -> [Int] {
+    compress(arr, 0, 0, arr.count)
+    return result
 }
+
+func compress(_ arr: [[Int]], _ row: Int, _ col: Int, _ n: Int) {
+    if isAllSame(arr, row, col, n) {
+        result[arr[row][col]] += 1
+    }
+    else {
+        compress(arr, row, col, n/2)
+        compress(arr, row, col + n/2, n/2)
+        compress(arr, row + n/2, col + n/2, n/2)
+        compress(arr, row + n/2, col, n/2)
+    }
+}
+
+func isAllSame(_ arr: [[Int]], _ row: Int, _ col: Int, _ n: Int) -> Bool {
+    let symbol = arr[row][col]
+    for i in row..<row + n {
+        for j in col..<col + n {
+            if symbol != arr[i][j] { return false }
+        }
+    }
+    return true
+}
+
+print(solution([[1,1,0,0],[1,0,0,0],[1,0,0,1],[1,1,1,1]]))

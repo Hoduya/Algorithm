@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3810FDF928F3E26D00F9C34F /* 소수만들기.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810FDF828F3E26D00F9C34F /* 소수만들기.swift */; };
 		38579B0628E5E31100E978AE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC8FE128D337770076D0CA /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		380D7FA928E1686B00B72D20 /* 자연수뒤집어배열로만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "자연수뒤집어배열로만들기.swift"; sourceTree = "<group>"; };
 		380D7FAD28E1730900B72D20 /* 평균구하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "평균구하기.swift"; sourceTree = "<group>"; };
 		380D7FAF28E1737500B72D20 /* 정수제곱근판별.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "정수제곱근판별.swift"; sourceTree = "<group>"; };
+		3810FDF828F3E26D00F9C34F /* 소수만들기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "소수만들기.swift"; sourceTree = "<group>"; };
 		3820C96C28E4A5A500D78F41 /* 숫자 문자열과 영단어.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "숫자 문자열과 영단어.swift"; sourceTree = "<group>"; };
 		3820C96E28E4A5C800D78F41 /* 두개뽑아서더하기.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "두개뽑아서더하기.swift"; sourceTree = "<group>"; };
 		3820C97028E4B28B00D78F41 /* 2016년.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "2016년.swift"; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				3862955128F0764600BB639B /* 방문길이.swift */,
 				3862955328F0971300BB639B /* 모음사전.swift */,
 				3862955528F1472700BB639B /* 가장큰수.swift */,
+				3810FDF828F3E26D00F9C34F /* 소수만들기.swift */,
 			);
 			path = Level2;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3810FDF928F3E26D00F9C34F /* 소수만들기.swift in Sources */,
 				38579B0628E5E31100E978AE /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
