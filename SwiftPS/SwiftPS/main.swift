@@ -1,31 +1,27 @@
+//
+//  숫자게임.swift
+//  SwiftPS
+//
+//  Created by HoJun on 2022/10/12.
+//
+
 import Foundation
 
-var result = [0, 0]
-func solution(_ arr:[[Int]]) -> [Int] {
-    compress(arr, 0, 0, arr.count)
-    return result
-}
-
-func compress(_ arr: [[Int]], _ row: Int, _ col: Int, _ n: Int) {
-    if isAllSame(arr, row, col, n) {
-        result[arr[row][col]] += 1
-    }
-    else {
-        compress(arr, row, col, n/2)
-        compress(arr, row, col + n/2, n/2)
-        compress(arr, row + n/2, col + n/2, n/2)
-        compress(arr, row + n/2, col, n/2)
-    }
-}
-
-func isAllSame(_ arr: [[Int]], _ row: Int, _ col: Int, _ n: Int) -> Bool {
-    let symbol = arr[row][col]
-    for i in row..<row + n {
-        for j in col..<col + n {
-            if symbol != arr[i][j] { return false }
+func solution(_ a:[Int], _ b:[Int]) -> Int {
+    let sortA = a.sorted(by: >)
+    let sortB = b.sorted(by: >)
+    
+    print(sortA)
+    print(sortB)
+    var score = 0
+    var bIdx = 0
+    for aIdx in 0..<sortA.count {
+        if sortB[bIdx] > sortA[aIdx] {
+            score += 1
+            bIdx += 1
         }
     }
-    return true
+    return score
 }
 
-print(solution([[1,1,0,0],[1,0,0,0],[1,0,0,1],[1,1,1,1]]))
+print(solution([5,1,3,7], [2,2,6,8]))
