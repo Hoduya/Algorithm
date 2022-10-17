@@ -1,27 +1,53 @@
-//
-//  숫자게임.swift
-//  SwiftPS
-//
-//  Created by HoJun on 2022/10/12.
-//
-
 import Foundation
 
-func solution(_ a:[Int], _ b:[Int]) -> Int {
-    let sortA = a.sorted(by: >)
-    let sortB = b.sorted(by: >)
-    
-    print(sortA)
-    print(sortB)
-    var score = 0
-    var bIdx = 0
-    for aIdx in 0..<sortA.count {
-        if sortB[bIdx] > sortA[aIdx] {
-            score += 1
-            bIdx += 1
+func solution(_ expression:String) -> Int64 {
+    var operators = expression.split{$0.isNumber}
+    var numbers = expression.split{!$0.isNumber}
+    var opTypes = Array(Set(operators))
+    var opSequences = [String]()
+
+    var vst = Array(repeating: false, count: opTypes.count)
+    func dfs(_ opStr: String) {
+        if opStr.count == opTypes.count {
+            opSequences.append(opStr)
+        }
+        
+        for i in 0..<opTypes.count {
+            guard !vst[i] else { continue }
+            vst[i] = true
+            dfs(opStr + opTypes[i])
+            vst[i] = false
         }
     }
-    return score
+    
+    var separted = [String]()
+    for i in 0..<numbers.count - 1 {
+        separted.append(String(numbers[i]))
+        separted.append(String(operators[i]))
+    }
+    separted.append(String(numbers.last!))
+    
+    var max = 0
+    for opSequence in opSequences {
+        for char in opSequence {
+            for i in 0..<separted.count {
+                if String(char) == separted[i] {
+                    switch char {
+                    case "*":
+                        opSequence[i]
+                    case "+":
+                        
+                    case "-":
+                        
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    return 0
 }
 
-print(solution([5,1,3,7], [2,2,6,8]))
+print(solution("100-200*300-500+20"))
