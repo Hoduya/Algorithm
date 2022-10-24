@@ -1,53 +1,69 @@
 import Foundation
 
-func solution(_ expression:String) -> Int64 {
-    var operators = expression.split{$0.isNumber}
-    var numbers = expression.split{!$0.isNumber}
-    var opTypes = Array(Set(operators))
-    var opSequences = [String]()
-
-    var vst = Array(repeating: false, count: opTypes.count)
-    func dfs(_ opStr: String) {
-        if opStr.count == opTypes.count {
-            opSequences.append(opStr)
-        }
-        
-        for i in 0..<opTypes.count {
-            guard !vst[i] else { continue }
-            vst[i] = true
-            dfs(opStr + opTypes[i])
-            vst[i] = false
-        }
-    }
+struct Music {
+    static var count = 0
     
-    var separted = [String]()
-    for i in 0..<numbers.count - 1 {
-        separted.append(String(numbers[i]))
-        separted.append(String(operators[i]))
-    }
-    separted.append(String(numbers.last!))
-    
-    var max = 0
-    for opSequence in opSequences {
-        for char in opSequence {
-            for i in 0..<separted.count {
-                if String(char) == separted[i] {
-                    switch char {
-                    case "*":
-                        opSequence[i]
-                    case "+":
-                        
-                    case "-":
-                        
-                    default:
-                        break
-                    }
-                }
-            }
-        }
-    }
-    
-    return 0
+    let order: Int = Music.count
+    let start: String
+    let end: String
+    let title: String
+    let playTime: Int
+    var notes: String
 }
 
-print(solution("100-200*300-500+20"))
+func solution(_ m:String, _ musicinfos:[String]) -> String {
+    var musics = [Music]()
+    
+    for music in musicinfos {
+        let arr = music.components(separatedBy: ",")
+        
+        // 재생 시간
+        let playTime = { () -> Int in
+            let s = arr[0].split(separator: ":").map{Int($0)!}
+            let e = arr[1].split(separator: ":").map{Int($0)!}
+            
+            return (e[0] * 60 + e[1]) - (s[0] * 60 + s[1])
+        }()
+        
+        // 악보 배열
+        var noteArray = [String]()
+        for note in arr[3] {
+            if note == "#" {
+                noteArray[noteArray.endIndex - 1] += "#"
+            } else {
+                noteArray.append(String(note))
+            }
+        }
+        
+        // 재생 시간 맞춘 악보 문자열
+        var notesInTime = ""
+        for i in 0..<playTime {
+            let idx = i % noteArray.count
+            notesInTime.append(noteArray[idx])
+        }
+        
+        musics.append(Music(start: arr[0], end: arr[1], title: arr[2], playTime: playTime, notes: notesInTime))
+        Music.count += 1
+    }
+    
+    // m 을 담고있는 음악정보만 남김
+    musics = musics.filter{
+        let tempArr = $0.notes.components(separatedBy: m + "#")
+        for notes in tempArr {
+            if notes.contains(m) { return true }
+        }
+        return false
+    }
+    
+    guard musics.count != 0 else {return "( None )"}
+    return musics.sorted { lhs, rhs in
+        if lhs.playTime == rhs.playTime {
+            return lhs.order < rhs.order
+        } else {
+            return lhs.playTime > rhs.playTime
+        }
+    }.first!.title
+}
+print(solution("ABC" , ["12:00,00:00,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]))
+
+
