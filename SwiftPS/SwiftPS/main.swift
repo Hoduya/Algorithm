@@ -1,69 +1,59 @@
 import Foundation
 
-struct Music {
-    static var count = 0
+func solution(_ places:[[String]]) -> [Int] {
+    var result = [Int]()
     
-    let order: Int = Music.count
-    let start: String
-    let end: String
-    let title: String
-    let playTime: Int
-    var notes: String
-}
-
-func solution(_ m:String, _ musicinfos:[String]) -> String {
-    var musics = [Music]()
-    
-    for music in musicinfos {
-        let arr = music.components(separatedBy: ",")
+    for place in places {
+        var arr = place.map{Array($0)}
         
-        // 재생 시간
-        let playTime = { () -> Int in
-            let s = arr[0].split(separator: ":").map{Int($0)!}
-            let e = arr[1].split(separator: ":").map{Int($0)!}
-            
-            return (e[0] * 60 + e[1]) - (s[0] * 60 + s[1])
-        }()
+        var isSafe = true
         
-        // 악보 배열
-        var noteArray = [String]()
-        for note in arr[3] {
-            if note == "#" {
-                noteArray[noteArray.endIndex - 1] += "#"
-            } else {
-                noteArray.append(String(note))
+        for i in 0..<arr.count {
+            for j in 0..<arr[i].count {
+                if arr[i][j] == "P" {
+                    if !checkAroundSafe(arr: arr, x: j, y: i) {
+                        isSafe = false
+                    }
+                }
+                if !isSafe { break }
             }
         }
-        
-        // 재생 시간 맞춘 악보 문자열
-        var notesInTime = ""
-        for i in 0..<playTime {
-            let idx = i % noteArray.count
-            notesInTime.append(noteArray[idx])
-        }
-        
-        musics.append(Music(start: arr[0], end: arr[1], title: arr[2], playTime: playTime, notes: notesInTime))
-        Music.count += 1
+        result.append(isSafe ? 1 : 0)
     }
-    
-    // m 을 담고있는 음악정보만 남김
-    musics = musics.filter{
-        let tempArr = $0.notes.components(separatedBy: m + "#")
-        for notes in tempArr {
-            if notes.contains(m) { return true }
-        }
-        return false
-    }
-    
-    guard musics.count != 0 else {return "( None )"}
-    return musics.sorted { lhs, rhs in
-        if lhs.playTime == rhs.playTime {
-            return lhs.order < rhs.order
-        } else {
-            return lhs.playTime > rhs.playTime
-        }
-    }.first!.title
+    return result
 }
-print(solution("ABC" , ["12:00,00:00,HELLO,C#DEFGAB", "13:00,13:05,WORLD,ABCDEF"]))
+
+func checkAroundSafe(arr: [[String.Element]], x: Int, y: Int) -> Bool {
+    let dx = [0, 0, -1, 1, 0, 0, -2, 2, -1, 1, -1, 1]
+    let dy = [-1, 1, 0, 0, -2, 2, 0, 0, -1, -1, 1, 1]
+    
+    for i in 0..<12 {
+        let tx = x + dx[i]
+        let ty = y + dy[i]
+        
+        guard isInMap(tx, ty) else { continue }
+
+        switch i {
+        case 0...3:
+            print(arr)
+            if arr[ty][tx] == "P" { return false }
+        case 4...7:
+            if arr[ty][tx] == "P" {
+                if arr[(y + ty) / 2][(x + tx) / 2] != "X" { return false }
+            }
+        case 8...11:
+            if arr[ty][tx] == "P" {
+                if arr[ty][x] != "X" || arr[y][tx] != "X" { return false }
+            }
+        default: break
+        }
+    }
+    return true
+}
+
+func isInMap(_ x: Int, _ y: Int) -> Bool {
+    return x >= 0 && y >= 0 && x < 5 && y < 5
+}
 
 
+print(solution([["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"], ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"], ["PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"], ["OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"], ["PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"]]))
