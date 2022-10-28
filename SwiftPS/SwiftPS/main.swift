@@ -1,59 +1,37 @@
 import Foundation
 
-func solution(_ places:[[String]]) -> [Int] {
-    var result = [Int]()
-    
-    for place in places {
-        var arr = place.map{Array($0)}
-        
-        var isSafe = true
-        
-        for i in 0..<arr.count {
-            for j in 0..<arr[i].count {
-                if arr[i][j] == "P" {
-                    if !checkAroundSafe(arr: arr, x: j, y: i) {
-                        isSafe = false
-                    }
+func solution(_ s:String) -> Int {
+    let arr = Array(s)
+    var compMax = 0
+
+    for len in 1...(arr.count / 2) + 1{
+        var preStr = ""
+        var repeatCount = 0
+        var compLength = 0
+        for left in stride(from: 0, to: arr.endIndex, by: len) {
+            let right = left + len - 1
+            guard right < arr.endIndex else { continue }
+            
+            let compRange = left...right
+            let str = String(arr[compRange])
+
+            if str == preStr {
+                repeatCount += 1
+            } else {
+                if repeatCount > 0 {
+                    compLength += (len * repeatCount) - 1
                 }
-                if !isSafe { break }
+                repeatCount = 0
             }
+            preStr = str
         }
-        result.append(isSafe ? 1 : 0)
-    }
-    return result
-}
-
-func checkAroundSafe(arr: [[String.Element]], x: Int, y: Int) -> Bool {
-    let dx = [0, 0, -1, 1, 0, 0, -2, 2, -1, 1, -1, 1]
-    let dy = [-1, 1, 0, 0, -2, 2, 0, 0, -1, -1, 1, 1]
-    
-    for i in 0..<12 {
-        let tx = x + dx[i]
-        let ty = y + dy[i]
         
-        guard isInMap(tx, ty) else { continue }
-
-        switch i {
-        case 0...3:
-            print(arr)
-            if arr[ty][tx] == "P" { return false }
-        case 4...7:
-            if arr[ty][tx] == "P" {
-                if arr[(y + ty) / 2][(x + tx) / 2] != "X" { return false }
-            }
-        case 8...11:
-            if arr[ty][tx] == "P" {
-                if arr[ty][x] != "X" || arr[y][tx] != "X" { return false }
-            }
-        default: break
-        }
+        if repeatCount > 0 { compLength += (len * repeatCount) - 1 }
+        repeatCount = 0
+        
+        compMax = max(compMax, compLength)
     }
-    return true
+    return arr.count - compMax
 }
 
-func isInMap(_ x: Int, _ y: Int) -> Bool {
-    return x >= 0 && y >= 0 && x < 5 && y < 5
-}
-
-
-print(solution([["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"], ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"], ["PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"], ["OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"], ["PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"]]))
+print(solution("werwerwsdgsdfsdfsdf"))
