@@ -37,7 +37,7 @@ public class p1162_도로포장 {
             adj[v].add(new Node(u, w, 0));
         }
 
-        // dp[i][j] i번 노드까지 K번 포장해서 갈 수 있는 최소거리.
+        // dp[i][j] i번 노드까지 j번 포장해서 갈 수 있는 최소거리.
         dp = new long[N + 1][K + 1];
 
         dijkstra();

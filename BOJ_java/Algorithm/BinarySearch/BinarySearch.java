@@ -5,9 +5,11 @@ import java.util.Arrays;
 public class BinarySearch {
     public static void main(String[] args) {
 
-        int[] arr = {0, 2, 2, 2, 3, 4, 5};
-        System.out.println(getUpperBound(arr, 2));
-        System.out.println(getLowerBound(arr, 2));
+        int[] arr = {0, 2, 2, 2, 2, 3, 4, 5};
+
+        int a = Arrays.binarySearch(arr, 2);
+
+        System.out.println(a);
     }
 
     static int binarySearch(int[] arr, int key) {
@@ -32,7 +34,6 @@ public class BinarySearch {
 
         while(low < high) {
             mid = low + (high - low) / 2;
-
             if(key <= arr[mid]) high = mid;
             else if(key > arr[mid]) low = mid + 1;
         }
@@ -46,7 +47,6 @@ public class BinarySearch {
 
         while(low < high) {
             mid = low + (high - low) / 2;
-
             if(key < arr[mid]) high = mid;
             else if(key >= arr[mid]) low = mid + 1;
         }
