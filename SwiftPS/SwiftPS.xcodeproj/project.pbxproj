@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38579B0628E5E31100E978AE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC8FE128D337770076D0CA /* main.swift */; };
+		38B0B03029D94B7900E53509 /* temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B0B02F29D94B7900E53509 /* temp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,6 +111,7 @@
 		38636A6528E2E98C00B4E1AB /* 삼진법.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "삼진법.swift"; sourceTree = "<group>"; };
 		38A5187C28E420F5003F1354 /* K번째수.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "K번째수.swift"; sourceTree = "<group>"; };
 		38B0901928E4094C002458A1 /* 최소직사각형.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "최소직사각형.swift"; sourceTree = "<group>"; };
+		38B0B02F29D94B7900E53509 /* temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temp.swift; sourceTree = "<group>"; };
 		38BA492528FD38240079B45E /* 메뉴리뉴얼.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "메뉴리뉴얼.swift"; sourceTree = "<group>"; };
 		38BA492728FD43320079B45E /* 올바른괄호변한.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "올바른괄호변한.swift"; sourceTree = "<group>"; };
 		38BC8FDE28D337770076D0CA /* SwiftPS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftPS; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,6 +266,7 @@
 		38BC8FE028D337770076D0CA /* SwiftPS */ = {
 			isa = PBXGroup;
 			children = (
+				38B0B02F29D94B7900E53509 /* temp.swift */,
 				38BC8FE128D337770076D0CA /* main.swift */,
 				380D7FA628E1657300B72D20 /* Level1 */,
 				38512A2628E708C10083F4A5 /* Level2 */,
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38579B0628E5E31100E978AE /* main.swift in Sources */,
+				38B0B03029D94B7900E53509 /* temp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

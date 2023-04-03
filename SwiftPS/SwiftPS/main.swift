@@ -1,37 +1,10 @@
 import Foundation
 
-func solution(_ s:String) -> Int {
-    let arr = Array(s)
-    var compMax = 0
-
-    for len in 1...(arr.count / 2) + 1{
-        var preStr = ""
-        var repeatCount = 0
-        var compLength = 0
-        for left in stride(from: 0, to: arr.endIndex, by: len) {
-            let right = left + len - 1
-            guard right < arr.endIndex else { continue }
-            
-            let compRange = left...right
-            let str = String(arr[compRange])
-
-            if str == preStr {
-                repeatCount += 1
-            } else {
-                if repeatCount > 0 {
-                    compLength += (len * repeatCount) - 1
-                }
-                repeatCount = 0
-            }
-            preStr = str
-        }
-        
-        if repeatCount > 0 { compLength += (len * repeatCount) - 1 }
-        repeatCount = 0
-        
-        compMax = max(compMax, compLength)
-    }
-    return arr.count - compMax
+func solution(_ numbers:[Int]) -> String {
+    let result = numbers.map{String($0)}.sorted{Int($0 + $1)! > Int($1 + $0)!}.joined()
+ 
+    return result.first! == "0" ? "0" : result
+    
+    
 }
-
-print(solution("werwerwsdgsdfsdfsdf"))
+print(solution([3, 30, 34, 5, 9]))

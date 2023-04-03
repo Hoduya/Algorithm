@@ -13,7 +13,6 @@ public class p13913_숨바꼭질4 {
     static int[] counts;
     static int[] path;
 
-
     public static void main(String[] args) throws IOException {
         Queue<Integer>[] a;
         a = new Queue[1];
