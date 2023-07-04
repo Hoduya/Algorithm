@@ -9,7 +9,6 @@ public class Main {
         Solution sol = new Solution();
         sol.solution(new String[]{"I -1", "I -1", "D -1"});
 
-
     }
 }
 

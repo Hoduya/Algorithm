@@ -5,8 +5,8 @@
 //  Created by HoJun on 2022/10/01.
 //
 
-
 var dp = Array<Int>()
+
 func solution(_ n:Int) -> Int {
     dp = Array(repeating: -1, count: n + 1)
     return fibo(n)

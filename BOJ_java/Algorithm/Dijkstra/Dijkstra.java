@@ -3,10 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Dijkstra {
     static final int INF = Integer.MAX_VALUE;
@@ -45,6 +42,7 @@ public class Dijkstra {
     }
     static int dijkstra(int start, int end) {
         PriorityQueue<Node> pq = new PriorityQueue<>();
+
         Arrays.fill(dist, INF);
         Arrays.fill(visited, false);
 

@@ -1,4 +1,4 @@
-package 가장먼노드;
+package Level2.가장먼노드;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

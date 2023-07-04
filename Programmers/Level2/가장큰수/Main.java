@@ -1,4 +1,4 @@
-package 가장큰수;
+package Level2.가장큰수;
 
 import java.io.IOException;
 import java.util.Arrays;
