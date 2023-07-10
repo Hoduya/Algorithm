@@ -8,7 +8,6 @@ public class p2579_계단오르기 {
         System.setIn(new FileInputStream("Input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-
         int n = Integer.parseInt(br.readLine());
 
         int dp[] = new int[n+1];
